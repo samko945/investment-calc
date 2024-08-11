@@ -8,7 +8,7 @@ function App() {
 				<Input type="number">Initial Investment</Input>
 				<Input type="number">Annual Investment</Input>
 				<Input type="number">Expected Return %</Input>
-				<Input type="number">Duration Months</Input>
+				<Input type="number">Duration</Input>
 			</form>
 		</>
 	);
