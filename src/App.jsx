@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import { calculateInvestment } from "./utils/investment";
 import CalcParamsForm from "./components/CalcParamsForm";
 
 function App() {
@@ -12,7 +12,14 @@ function App() {
 	function handleCalcParamsChange(e) {
 		setCalcParams((prev) => ({ ...prev, [e.target.name]: e.target.value }));
 	}
-	console.log(calcParams);
+	if (
+		calcParams.initialInvestment &&
+		calcParams.annualInvestment &&
+		calcParams.expectedReturn &&
+		calcParams.duration
+	) {
+		console.log(calculateInvestment(calcParams));
+	}
 	return (
 		<>
 			<h1>Investment Calculator</h1>

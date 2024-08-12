@@ -8,10 +8,10 @@ This function expects an object as an argument with the following properties
 export function calculateInvestment({ initialInvestment, annualInvestment, expectedReturn, duration }) {
 	const annualData = [];
 
-	let investmentValue = initialInvestment;
-	for (let i = 0; i < duration; i++) {
-		const interestEarnedInYear = investmentValue * (expectedReturn / 100);
-		investmentValue += interestEarnedInYear + annualInvestment;
+	let investmentValue = Number(initialInvestment);
+	for (let i = 0; i < Number(duration); i++) {
+		const interestEarnedInYear = investmentValue * (Number(expectedReturn) / 100);
+		investmentValue += interestEarnedInYear + Number(annualInvestment);
 		annualData.push({
 			year: i + 1,
 			interest: interestEarnedInYear,
