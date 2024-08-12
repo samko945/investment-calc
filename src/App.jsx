@@ -1,15 +1,22 @@
-import Input from "./components/Input";
+import { useState } from "react";
+
+import CalcParamsForm from "./components/CalcParamsForm";
 
 function App() {
+	const [calcParams, setCalcParams] = useState({
+		initialInvestment: "",
+		annualInvestment: "",
+		expectedReturn: "",
+		duration: "",
+	});
+	function handleCalcParamsChange(e) {
+		setCalcParams((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+	}
+	console.log(calcParams);
 	return (
 		<>
 			<h1>Investment Calculator</h1>
-			<form>
-				<Input type="number">Initial Investment</Input>
-				<Input type="number">Annual Investment</Input>
-				<Input type="number">Expected Return %</Input>
-				<Input type="number">Duration</Input>
-			</form>
+			<CalcParamsForm data={calcParams} onDataChange={handleCalcParamsChange} />
 		</>
 	);
 }
