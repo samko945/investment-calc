@@ -17,6 +17,7 @@ export function calculateInvestment({ initialInvestment, annualInvestment, expec
 			interest: interestEarnedInYear,
 			valueEndOfYear: investmentValue,
 			annualInvestment,
+			totalInterest: investmentValue - annualInvestment,
 		});
 	}
 
