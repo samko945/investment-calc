@@ -35,11 +35,11 @@ export default function Result({ input: calcParams }) {
 					{result.map((row, index) => {
 						return (
 							<tr key={index}>
-								<TableData>{row.year}</TableData>
-								<TableData isCurrency={true}>{row.valueEndOfYear}</TableData>
-								<TableData isCurrency={true}>{row.interest}</TableData>
-								<TableData isCurrency={true}>{row.totalInterest}</TableData>
-								<TableData isCurrency={true}>{row.annualInvestment}</TableData>
+								<TableData value={row.year} />
+								<TableData isCurrency={true} value={row.valueEndOfYear} />
+								<TableData isCurrency={true} value={row.interest} />
+								<TableData isCurrency={true} value={row.totalInterest} />
+								<TableData isCurrency={true} value={row.annualInvestment} />
 							</tr>
 						);
 					})}

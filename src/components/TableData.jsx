@@ -1,7 +1,8 @@
-export default function TableData({ children, isCurrency }) {
-	if (typeof children !== "string" && typeof children !== "number") {
-		throw Error("TableData child must be string or number.");
-	}
+import { formatter } from "../utils/investment";
 
-	return <td>{children}</td>;
+export default function TableData({ value, isCurrency }) {
+	if (isCurrency) {
+		value = formatter.format(value);
+	}
+	return <td>{value}</td>;
 }

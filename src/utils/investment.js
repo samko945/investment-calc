@@ -10,14 +10,15 @@ export function calculateInvestment({ initialInvestment, annualInvestment, expec
 
 	let investmentValue = Number(initialInvestment);
 	for (let i = 0; i < Number(duration); i++) {
+		console.log(initialInvestment);
 		const interestEarnedInYear = investmentValue * (Number(expectedReturn) / 100);
 		investmentValue += interestEarnedInYear + Number(annualInvestment);
 		annualData.push({
 			year: i + 1,
-			interest: interestEarnedInYear,
 			valueEndOfYear: investmentValue,
-			annualInvestment,
-			totalInterest: investmentValue - annualInvestment,
+			interest: interestEarnedInYear,
+			totalInterest: annualData.reduce((acc, curr) => acc + curr.interest, interestEarnedInYear),
+			annualInvestment: Number(initialInvestment) + (i + 1) * Number(annualInvestment),
 		});
 	}
 
