@@ -1,5 +1,5 @@
 import { useState } from "react";
-import saplingImage from "../assets/sapling.png";
+import Header from "./components/Header";
 import CalcParamsForm from "./components/CalcParamsForm";
 import Result from "./components/Result";
 
@@ -16,8 +16,7 @@ function App() {
 
 	return (
 		<>
-			<img src={saplingImage} alt="sapling" />
-			<h1>Investment Calculator</h1>
+			<Header />
 			<CalcParamsForm data={calcParams} onDataChange={handleCalcParamsChange} />
 			<Result input={calcParams} />
 		</>
