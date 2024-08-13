@@ -8,17 +8,17 @@ This function expects an object as an argument with the following properties
 export function calculateInvestment({ initialInvestment, annualInvestment, expectedReturn, duration }) {
 	const annualData = [];
 
-	let investmentValue = Number(initialInvestment);
-	for (let i = 0; i < Number(duration); i++) {
+	let investmentValue = initialInvestment;
+	for (let i = 0; i < duration; i++) {
 		console.log(initialInvestment);
-		const interestEarnedInYear = investmentValue * (Number(expectedReturn) / 100);
-		investmentValue += interestEarnedInYear + Number(annualInvestment);
+		const interestEarnedInYear = investmentValue * (expectedReturn / 100);
+		investmentValue += interestEarnedInYear + annualInvestment;
 		annualData.push({
 			year: i + 1,
 			valueEndOfYear: investmentValue,
 			interest: interestEarnedInYear,
 			totalInterest: annualData.reduce((acc, curr) => acc + curr.interest, interestEarnedInYear),
-			annualInvestment: Number(initialInvestment) + (i + 1) * Number(annualInvestment),
+			annualInvestment: initialInvestment + (i + 1) * annualInvestment,
 		});
 	}
 

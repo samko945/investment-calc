@@ -69,6 +69,7 @@ form {
 	grid-template-columns: repeat(2, 1fr);
 	gap: 2rem;
 	padding: 2rem;
+	padding-bottom: 3rem;
 	border-radius: 0.25rem;
 	/* background: rgba(255, 255, 255, 0.55); */
 	background: rgb(85, 79, 166);
