@@ -10,7 +10,7 @@ export default function Result({ input: calcParams }) {
 	});
 
 	if (hasMissingParam) {
-		return <div>Fill in the form!</div>;
+		return <section>Fill in the form!</section>;
 	}
 
 	const headings = {

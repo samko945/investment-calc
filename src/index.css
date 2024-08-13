@@ -1,8 +1,14 @@
+/*
+font-family: "Poppins", sans-serif;
+font-family: "Geologica", sans-serif;
+*/
+
 * {
 	box-sizing: border-box;
 }
 
 body {
+	font-family: "Poppins", sans-serif;
 	background-color: rgb(27, 32, 44);
 	color: rgb(244, 242, 242);
 	display: flex;
@@ -11,9 +17,16 @@ body {
 }
 
 h1 {
+	font-family: "Geologica", sans-serif;
 	color: rgb(236, 237, 233);
 	text-align: center;
 	margin-bottom: 2rem;
+}
+
+section {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
 form {
@@ -35,11 +48,13 @@ form > * > * {
 }
 
 input {
+	color: rgba(255, 255, 255, 1);
 	font-size: 1.25rem;
 	padding: 0.5rem;
-	/* background: none; */
-	background-color: rgba(255, 255, 255, 0.846);
-	border: 1px solid black;
+	border-radius: 0.25rem;
+	background: none;
+	/* background-color: rgba(255, 255, 255, 0.846); */
+	border: 1px solid rgba(255, 255, 255, 0.5);
 }
 
 table {
