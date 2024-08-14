@@ -2,34 +2,44 @@ import { calculateInvestment } from "../utils/investment";
 import TableData from "./TableData";
 
 export default function Result({ input: calcParams }) {
-	const inputReceived = Object.entries(calcParams);
-	// check if there is a missing value for any param
-	const hasMissingParam = inputReceived.some((param) => {
-		// param[0] is param key, param[1] is param value
-		return !param[1];
-	});
-
-	if (hasMissingParam) {
-		return <section>Fill in the form!</section>;
-	}
-
-	const headings = {
-		year: "Year",
-		interest: "Interest (annual)",
-		valueEndOfYear: "Investment Value",
-		annualInvestment: "Invested Capital",
-		totalInterest: "Accumulated Interest",
+	const missingParams = () => {
+		const missing = [];
+		const params = Object.entries(calcParams);
+		for (const param of params) {
+			if (param[1] === "" || param[1] === 0) {
+				missing.push(param[0]);
+			}
+		}
+		return missing;
 	};
 
+	const durationBadValue = calcParams.duration <= 0;
+	const durationNoValue = calcParams.duration !== "";
+	const invalidDuration = durationBadValue && durationNoValue;
+	const invalidDurationMessage = <span>Duration must be greater than 0.</span>;
+
+	if (missingParams().length > 0 || durationBadValue) {
+		return (
+			<section>
+				<span>Fill in the form!</span>
+				{invalidDuration && invalidDurationMessage}
+			</section>
+		);
+	}
+
 	const result = calculateInvestment(calcParams);
-	const resultKeys = Object.keys(result[0]);
-	const rowHeadings = resultKeys.map((key) => <th key={key}>{headings[key]}</th>);
 
 	return (
 		<section>
 			<table>
 				<thead>
-					<tr>{rowHeadings}</tr>
+					<tr>
+						<th>Year</th>
+						<th>Investment Value</th>
+						<th>Interest (annual)</th>
+						<th>Accumulated Interest</th>
+						<th>Invested Capital</th>
+					</tr>
 				</thead>
 				<tbody>
 					{result.map((row, index) => {

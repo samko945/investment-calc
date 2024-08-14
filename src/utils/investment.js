@@ -6,11 +6,15 @@ This function expects an object as an argument with the following properties
 - duration: the investment duration years
 */
 export function calculateInvestment({ initialInvestment, annualInvestment, expectedReturn, duration }) {
+	initialInvestment = parseFloat(initialInvestment);
+	annualInvestment = parseFloat(annualInvestment);
+	expectedReturn = parseFloat(expectedReturn);
+	duration = parseInt(duration, 10);
+
 	const annualData = [];
 
 	let investmentValue = initialInvestment;
 	for (let i = 0; i < duration; i++) {
-		console.log(initialInvestment);
 		const interestEarnedInYear = investmentValue * (expectedReturn / 100);
 		investmentValue += interestEarnedInYear + annualInvestment;
 		annualData.push({

@@ -5,13 +5,14 @@ import Result from "./components/Result";
 
 function App() {
 	const [calcParams, setCalcParams] = useState({
-		initialInvestment: 10000,
-		annualInvestment: 1500,
-		expectedReturn: 5,
+		initialInvestment: "",
+		annualInvestment: "",
+		expectedReturn: "",
 		duration: "",
 	});
+
 	function handleCalcParamsChange(e) {
-		setCalcParams((prev) => ({ ...prev, [e.target.name]: +e.target.value }));
+		setCalcParams((prev) => ({ ...prev, [e.target.name]: e.target.value }));
 	}
 
 	return (
