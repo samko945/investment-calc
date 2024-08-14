@@ -1,6 +1,7 @@
 /*
 font-family: "Poppins", sans-serif;
 font-family: "Geologica", sans-serif;
+font-family: "Ubuntu Mono", monospace;
 */
 
 * {
@@ -89,6 +90,7 @@ form > * > * {
 }
 
 input {
+	font-family: "Ubuntu Mono";
 	color: rgba(255, 255, 255, 1);
 	font-size: 1.25rem;
 	padding: 0.5rem;
@@ -96,6 +98,10 @@ input {
 	background: none;
 	/* background-color: rgba(255, 255, 255, 0.846); */
 	border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+table {
+	border-collapse: collapse;
 }
 
 table th,
@@ -110,4 +116,13 @@ table tr {
 
 th {
 	color: rgb(96, 149, 209);
+}
+
+td {
+	font-size: 1.15rem;
+	font-family: "Ubuntu Mono";
+}
+
+tr:hover td {
+	background-color: rgb(30, 30, 39);
 }

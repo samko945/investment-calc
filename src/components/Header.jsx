@@ -1,4 +1,4 @@
-import saplingImage from "../../assets/sapling.png";
+import saplingImage from "../assets/sapling.png";
 
 export default function Header() {
 	return (
